@@ -2,11 +2,10 @@
 
 <form 
     #formulario='ngForm'
-    (click)="submitForm(formulario)"
->
+    (submit)="submitForm(formulario)">
 
     <input type="email"
-        class="form-cntrol"
+        [class]="{'invalid': formulario.invalid, 'valid': formulario.valid}"
         id="email"
         name="email"
         ngModel
@@ -16,6 +15,9 @@
 
         <button type="submit" [disabled]="!formulario.valid">
             Enviar Formulario
+        </button>
+        <button type="reset">
+            Reset
         </button>
 
 </form>
